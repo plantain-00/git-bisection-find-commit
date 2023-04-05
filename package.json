@@ -1,0 +1,49 @@
+{
+  "name": "git-bisection-find-commit",
+  "version": "0.0.1",
+  "description": "A CLI tool to bisection find the commit that breaks your code.",
+  "main": "dist/core.js",
+  "repository": "git@github.com:plantain-00/git-bisection-find-commit.git",
+  "author": "York Yao <me@yorkyao.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/inquirer": "9.0.3",
+    "@types/minimist": "1.2.2",
+    "@types/node": "18.15.11",
+    "@typescript-eslint/eslint-plugin": "5.57.1",
+    "@typescript-eslint/parser": "5.57.1",
+    "clean-release": "2.18.0",
+    "clean-scripts": "1.21.1",
+    "eslint": "8.37.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-plantain": "2.0.0",
+    "markdownlint-cli": "0.33.0",
+    "rimraf": "4.4.1",
+    "ts-node": "10.9.1",
+    "tsconfig-plantain": "0.0.2",
+    "type-coverage": "2.25.0",
+    "typescript": "5.0.3"
+  },
+  "dependencies": {
+    "inquirer": "8",
+    "minimist": "1",
+    "tslib": "1 || 2"
+  },
+  "scripts": {
+    "build": "clean-scripts build",
+    "lint": "clean-scripts lint",
+    "test": "clean-scripts test",
+    "release": "clean-release",
+    "fix": "clean-scripts fix"
+  },
+  "bin": {
+    "git-bisection-find-commit": "bin/git-bisection-find-commit"
+  },
+  "types": "dist/core.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "typeCoverage": {
+    "atLeast": 99.4
+  }
+}
