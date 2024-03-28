@@ -58,18 +58,18 @@ async function executeCommandLine() {
   while (wrongIndex < correctIndex) {
     if (wrongIndex + 1 === correctIndex) {
       const commit = commits[wrongIndex]
-      console.info(`The commit that breaks your code is: ${commit.hash} at ${commit.date} by ${commit.author} ${commit.message}`)
+      console.info(`The commit that breaks your code is: ${wrongIndex} ${commit.hash} at ${commit.date} by ${commit.author} ${commit.message}`)
       break
     }
     const middle = Math.floor((wrongIndex + correctIndex) / 2)
     const commit = commits[middle]
-    console.info(`git checkout ${commit.hash} at ${commit.date} by ${commit.author} ${commit.message}`)
+    console.info(`git checkout ${middle}(${wrongIndex}~${correctIndex - 1}) ${commit.hash} at ${commit.date} by ${commit.author} ${commit.message}`)
     childProcess.execSync(`git checkout ${commit.hash}`)
 
     const correctAnswer = await inquirer.prompt<{ correct: boolean }>({
       type: 'confirm',
       name: 'correct',
-      message: 'Is current commit correct?',
+      message: `Is current commit ${middle}(${wrongIndex}~${correctIndex - 1}) correct?`,
     })
     if (correctAnswer.correct) {
       correctIndex = middle
